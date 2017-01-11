@@ -9,7 +9,6 @@
 	    }
 
 	    public function invoke(){
-	    	header('Content-Type: application/json');
 	    	echo json_encode($this->userDao->getAllUser());
 	    } 
 
@@ -21,7 +20,7 @@
 				$people->$key = $value;
 			}
 	    	
-	    	$this->userDao->insertUser($people);
+	    	echo $this->userDao->insertUser($people);
 	    }
 	}
 ?>

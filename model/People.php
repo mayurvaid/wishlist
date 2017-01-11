@@ -5,8 +5,10 @@
 		public $lastname;
 		public $email;
 		public $phone;
-		
-		public function __construct($firstname, $lastname, $email ,$phone)  
+		public $userId;
+
+
+		public function setAllData($firstname, $lastname, $email ,$phone)  
 	    {  
 	        $this->firstname = $firstname;
 		    $this->lastname = $lastname;
