@@ -1,6 +1,8 @@
 <?php
 	include "BaseDao.php";
 	include_once("model/Registry.php");
+	include_once("model/Error.php");
+	include_once("model/Success.php");
 	class RegistryDao{
 		private $baseDao;
 
@@ -10,7 +12,7 @@
 		}
 
 		function getRegistryById($id){
-			$query = "select * from reqistry where registry_i=" . $id;
+			$query = "select * from registry where registry_i=" . $id;
 			//$result = mysql_query($query) or die("Could not query: " . mysql_error());  
 			$respArray =  array();
 			foreach($this->baseDao->db->query($query) as $row){	
@@ -25,15 +27,15 @@
 
 				$registry = new Registry();
 				$registry->setAllData($registryId,$occassionName,$occasionOtherName,$eventDate,
-					$eventTime,$registryName,$address,$customUrl);
+					$eventTime,$registryName,$address,$customUrl,$_SESSION['user_session']);
 				array_push($respArray ,$registry);
 			}
-			return $respArray;
+			return json_encode($respArray);
 		}
 
 		function insertRegistry($registry){
 			$this->baseDao->db->beginTransaction();
-			$insertStmt = $this->baseDao->db->prepare("INSERT INTO reqistry (occasion_n
+			$insertStmt = $this->baseDao->db->prepare("INSERT INTO registry (occasion_n
 				,occasion_oth_n,event_date,event_time,registry_name,address,custom_url)
 			 VALUES (:occassionName, :occasionOtherName,:eventDate,:eventTime,
 			 	:registryName,:address,:customUrl)");
@@ -49,8 +51,19 @@
 		            'customUrl' => $registry->customUrl
 		        ));
 
-		         $this->baseDao->db->commit();
+			  	$registry->registryId = $this->baseDao->db->lastInsertId();
+
+			  	$insertStmt1 = $this->baseDao->db->prepare("INSERT INTO registry_user (registry_i
+				,user_i)
+			 	VALUES (:registryId, :userId)");
+
+			  	$insertStmt1->execute(array(
+			  		'registryId' => $registry->registryId,
+		            'userId' => $registry->userId
+			  	));
+		        $this->baseDao->db->commit();
 		    } catch (Exception $e) {
+		    	echo $e;
 		    	$this->baseDao->db->rollBack();
 		    	http_response_code(500);
 		    	$error = new Error("1000","An error occurred while creating registry");

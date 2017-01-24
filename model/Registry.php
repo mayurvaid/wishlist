@@ -8,9 +8,10 @@
 		public $registryName;
 		public $address;
 		public $customUrl;
+		public $userId;
 
 		function setAllData($registryId,$occassionName,$occasionOtherName,$eventDate
-			,$eventTime,$registryName,$address,$customUrl){
+			,$eventTime,$registryName,$address,$customUrl,$userId){
 			$this->registryId = $registryId;
 			$this->registryName = $registryName;
 			$this->occassionName = $occassionName;
@@ -19,6 +20,7 @@
 			$this->eventTime = $eventTime;
 			$this->address = $address;
 			$this->customUrl = $customUrl;
+			$this->userId = $userId;
 		}
 	}
 ?>

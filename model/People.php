@@ -4,16 +4,16 @@
 		public $firstname;
 		public $lastname;
 		public $email;
-		public $phone;
 		public $userId;
+		public $password;
 
 
-		public function setAllData($firstname, $lastname, $email ,$phone)  
+		public function setAllData($firstname, $lastname, $email ,$password)  
 	    {  
 	        $this->firstname = $firstname;
 		    $this->lastname = $lastname;
 		    $this->email = $email;
-		    $this->phone = $phone;
+		    $this->password = $password;
 	    } 
 	}
 ?>

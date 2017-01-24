@@ -17,6 +17,7 @@ class BaseDao{
 	}
 
 	public function closeConnection(){
+		$this->db = null;
 	}
 }
 
