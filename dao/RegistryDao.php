@@ -36,9 +36,9 @@
 		function insertRegistry($registry){
 			$this->baseDao->db->beginTransaction();
 			$insertStmt = $this->baseDao->db->prepare("INSERT INTO registry (occasion_n
-				,occasion_oth_n,event_date,event_time,registry_name,address,custom_url)
+				,occasion_oth_n,event_date,event_time,registry_name,address,custom_url,user_i)
 			 VALUES (:occassionName, :occasionOtherName,:eventDate,:eventTime,
-			 	:registryName,:address,:customUrl)");
+			 	:registryName,:address,:customUrl,:userId)");
 
 		   try {
 			  	$insertStmt->execute(array(
@@ -48,19 +48,11 @@
 		            'eventTime' => $registry->eventTime,
 		            'registryName' => $registry->registryName,
 		            'address' => $registry->address,
-		            'customUrl' => $registry->customUrl
+		            'customUrl' => $registry->customUrl,
+		            'userId' => $registry->userId
 		        ));
 
 			  	$registry->registryId = $this->baseDao->db->lastInsertId();
-
-			  	$insertStmt1 = $this->baseDao->db->prepare("INSERT INTO registry_user (registry_i
-				,user_i)
-			 	VALUES (:registryId, :userId)");
-
-			  	$insertStmt1->execute(array(
-			  		'registryId' => $registry->registryId,
-		            'userId' => $registry->userId
-			  	));
 		        $this->baseDao->db->commit();
 		    } catch (Exception $e) {
 		    	echo $e;
