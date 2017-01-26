@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Gift Wrappd</title>
+	<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+	<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+  </head>
+  <body>
+		<header>
+		  <div id="menuMobile" style="display:none;">
+			<img src="images/GW_menu.png">
+			<ul class="menuOptions" style="display:none;">
+				<li><a href="signInModal" class="findList mobile openModal">FIND A WISH LIST</a></li>
+				<li><a href="signInModal" class="createList mobile openModal">CREATE A WISH LIST</a></li>
+			</ul>
+		  </div>
+		  <div class="logo">
+			<img src="images/GW_logo.png" alt="Logo">
+		  </div>
+		  <div class="menuBar">
+			<a href="signInModal" class="w-button menuDesktop but-1 findList openModal"  style="display:none;">FIND A WISH LIST</a>
+			<a href="signInModal" class="w-button menuDesktop but-2 createList openModal" style="display:none;">CREATE A WISH LIST</a>
+			<a href="signInModal" class="manageIn openModal">SIGN IN / SIGN UP</a>
+		  </div>
+		</header>
+		
+		<section id="banner">
+			<div class="content">
+				<h1>THE WISH LIST</h1>
+				<div class="">Tired of getting unwanted gifts on your favorite occasion? our Wishlist experience will solve your problem</div>	
+			</div>
+		</section>
+		
+		<section id="howItWorks">
+			<h2 class="heading">How it works</h2>
+			<div class="steps">
+				<div class="step" id="step1">
+					<div class="stepNum">1</div>
+					<img src="images/GW_1_add.png">
+					<div class="stepTitle">create a wish list</div>
+				</div>
+				<div class="stepArrow"><img src="images/arrow.jpg"></div>
+				<div class="step" id="step2">
+					<div class="stepNum">2</div>
+					<img src="images/GW_2_add.png">
+					<div class="stepTitle">add items to wish list from any website</div>
+				</div>
+				<div class="stepArrow"><img src="images/arrow.jpg"></div>
+				<div class="step" id="step3">
+					<div class="stepNum">3</div>
+					<img src="images/GW_3_share.png">
+					<div class="stepTitle">share your wish list with friends/family members</div>
+				</div>
+				<div class="stepArrow"><img src="images/arrow.jpg"></div>
+				<div class="step last" id="step4">
+					<div class="stepNum">4</div>
+					<img src="images/GW_4_gift.png">
+					<div class="stepTitle">get your gift</div>
+				</div>
+			</div>
+			<div class="stepSelection">
+				<div class="stepSel selected" data-id="step1"></div>
+				<div class="stepSel" data-id="step2"></div>
+				<div class="stepSel" data-id="step3"></div>
+				<div class="stepSel" data-id="step4"></div>
+			</div>
+		</section>
+		<div class="seperator"></div>
+		<footer>
+			<div class="wrapper">
+				<div class="content">
+					<div class="floatLeft">Follow us</div>
+					<div class="contact floatLeft">
+						<a href="#" class="in-blc">Feedback</a>
+						<a href="#" class="in-blc">Contact us</a>
+					</div>
+				</div>
+			</div>
+		</footer>
+    <div class="w-backdrop"></div>
+    <div class="w-modal">
+      <div class="w-modal-container">
+        <div class="w-modal-header">
+          <img src="images/GW_logo.png" alt="Logo">
+        </div>
+        <div class="w-modal-body">
+		  <div class="otherSignIn">
+			<div><a href="facebook" class="facebook"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 216 216" class="otherIcon"><path fill="#ffffff" d="M204.1 0H11.9C5.3 0 0 5.3 0 11.9v192.2c0 6.6 5.3 11.9 11.9 11.9h103.5v-83.6H87.2V99.8h28.1v-24c0-27.9 17-43.1 41.9-43.1 11.9 0 22.2.9 25.2 1.3v29.2h-17.3c-13.5 0-16.2 6.4-16.2 15.9v20.8h32.3l-4.2 32.6h-28V216h55c6.6 0 11.9-5.3 11.9-11.9V11.9C216 5.3 210.7 0 204.1 0z"></path></svg><span class="otherTxt">Sign Up With Facebook</span></a></div>
+			<div><a href="google" class="google"><svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" class="otherIcon"><g fill="none" fill-rule="evenodd"><path d="M482.56 261.36c0-16.73-1.5-32.83-4.29-48.27H256v91.29h127.01c-5.47 29.5-22.1 54.49-47.09 71.23v59.21h76.27c44.63-41.09 70.37-101.59 70.37-173.46z" fill="#4285f4"></path><path d="M256 492c63.72 0 117.14-21.13 156.19-57.18l-76.27-59.21c-21.13 14.16-48.17 22.53-79.92 22.53-61.47 0-113.49-41.51-132.05-97.3H45.1v61.15c38.83 77.13 118.64 130.01 210.9 130.01z" fill="#34a853"></path><path d="M123.95 300.84c-4.72-14.16-7.4-29.29-7.4-44.84s2.68-30.68 7.4-44.84V150.01H45.1C29.12 181.87 20 217.92 20 256c0 38.08 9.12 74.13 25.1 105.99l78.85-61.15z" fill="#fbbc05"></path><path d="M256 113.86c34.65 0 65.76 11.91 90.22 35.29l67.69-67.69C373.03 43.39 319.61 20 256 20c-92.25 0-172.07 52.89-210.9 130.01l78.85 61.15c18.56-55.78 70.59-97.3 132.05-97.3z" fill="#ea4335"></path><path d="M20 20h472v472H20V20z"></path></g></svg><span class="otherTxt">Login With Google</span></a></div>
+			<div>OR</div>
+		  </div>
+          <div id="createProfile">
+            <h2>CREATE A PROFILE</h2>
+            <form id="signUpForm">
+              <div class="signUpDet">
+                <div class="form-input">
+                  <input type="text" name="firstName" placeholder="First Name" id="firstName">
+                </div>
+                <div class="form-input">
+                  <input type="text" name="lastName" placeholder="Last Name" id="lastName">
+                </div>
+                <div class="form-input">
+                  <input type="email" name="emailId" placeholder="Email" id="emailId">
+                </div>
+                <div class="form-input">
+                  <input type="password" name="password" placeholder="Password" id="password">
+                </div>
+              </div>
+              <div class="form-button">
+                <button class="w-button but-1 create" type="submit">CREATE</button>
+				<button class="w-button but-2 closeModal" type="button">CANCEL</button>
+              </div>
+            </form>
+          </div>
+          <div id="userLogin" style="display:none">
+            <h2>LOGIN</h2>
+            <form id="signUpForm">
+              <div class="signUpDet">
+                <div class="form-input">
+                  <input type="email" name="emailId" placeholder="Email" id="emailId">
+                </div>
+                <div class="form-input">
+                  <input type="password" name="password" placeholder="Password" id="password">
+                </div>
+              </div>
+              <div class="form-button">
+                <button class="w-button but-1 logIn" type="submit">LOGIN</button>
+				<button class="w-button but-2 closeModal" type="button">CANCEL</button>
+              </div>
+            </form>
+          </div>
+          <div class="showOptions">
+            <span class="showSignInSec">Already have an account?
+              <a href="#" class="showSignIn showLoginForm">Sign in
+              </a>
+            </span>
+            <span class="showSignUpSec" style="display:none">Don't have an account?
+              <a href="#" class="showSignUp showLoginForm">Sign up
+              </a>
+            </span>
+          </div>
+        </div>
+        <a href="javascript:void(0)" class="closeModal closeIcon">X
+        </a>
+      </div>
+    </div>
+    <script src="js/script.js" type="text/javascript"></script>
+  </body>	
+</html>
