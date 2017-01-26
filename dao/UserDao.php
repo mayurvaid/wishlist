@@ -3,7 +3,9 @@
 	include_once("model/People.php");
 	include_once("model/Error.php");
 	include_once("model/Success.php");
-	session_start();
+	if(!isset($_SESSION)){ 
+        session_start(); 
+    } 
 
 	class UserDao {
 		private $baseDao;
@@ -30,8 +32,9 @@
 		}
 
 		function insertUser($people){
-			$insertStmt = $this->baseDao->db->prepare("INSERT INTO user (email, first_name,last_name,password,crte_ts)
-			 VALUES (:email, :first_name,:last_name,:password,:time)");
+			$insertStmt = $this->baseDao->db->prepare("INSERT INTO user (email, first_name,last_name,
+				password,crte_ts,oauth_provider,oauth_uid,picture)
+			 VALUES (:email, :first_name,:last_name,:password,:time,:oauthId,:oauthProvider,:picture)");
 		    $timestamp = date('Y-m-d G:i:s');
 		  	
 		  	try {
@@ -40,10 +43,14 @@
 		            'first_name' => $people->firstname,
 		            'last_name' => $people->lastname,
 		            'password' => $people->password,
+		            'oauthId' => $people->oauthId,
+		            'oauthProvider' => $people->oauthProvider,
+		            'picture' => $people->picture,
 		            'time' => $timestamp
 		        ));
 		        $people->userId = $this->baseDao->db->lastInsertId();
 		    } catch (Exception $e) {
+		    	echo $e;
 		    	http_response_code(500);
 		    	header('Content-Type: application/json');
 
