@@ -13,23 +13,27 @@
 
 		function getRegistryById($id){
 			$query = "select * from registry where registry_i=" . $id;
-			//$result = mysql_query($query) or die("Could not query: " . mysql_error());  
-			$respArray =  array();
-			foreach($this->baseDao->db->query($query) as $row){	
-				$registryId = $row["registry_i"];
-				$occassionName = $row["occasion_n"];
-				$occasionOtherName = $row["occasion_oth_n"];
-				$eventDate = $row["event_date"];
-				$eventTime = $row["event_time"];
-				$registryName = $row["registry_name"];
-				$address = $row["address"];
-				$customUrl = $row["custom_url"];
+			$preparedQuery = $this->baseDao->db->prepare($query);
 
-				$registry = new Registry();
-				$registry->setAllData($registryId,$occassionName,$occasionOtherName,$eventDate,
-					$eventTime,$registryName,$address,$customUrl,$_SESSION['user_session']);
-				array_push($respArray ,$registry);
-			}
+			$respArray =  array();
+			$preparedQuery->execute();
+			$row = $preparedQuery->fetch();
+			$registry = new Registry();
+		
+			$registryId = $row["registry_i"];
+			$occassionName = $row["occasion_n"];
+			$occasionOtherName = $row["occasion_oth_n"];
+			$eventDate = $row["event_date"];
+			$eventTime = $row["event_time"];
+			$registryName = $row["registry_name"];
+			$address = $row["address"];
+			$customUrl = $row["custom_url"];
+
+			$registry = new Registry();
+			$registry->setAllData($registryId,$occassionName,$occasionOtherName,$eventDate,
+				$eventTime,$registryName,$address,$customUrl,$_SESSION['user_session']);
+			
+			$respArray["registry"] = $registry;
 			return json_encode($respArray);
 		}
 

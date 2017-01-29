@@ -5,7 +5,7 @@
 		public $occasionOtherName;
 		public $eventDate;
 		public $eventTime;
-		public $;
+		public $registryName;
 		public $address;
 		public $customUrl;
 		public $userId;

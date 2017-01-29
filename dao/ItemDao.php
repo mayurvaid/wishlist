@@ -20,7 +20,7 @@
 		  	try {
 			  	$insertStmt->execute(array(
 		            'itemDescription' => $item->itemDescription,
-		            'itemImage' => $registryId->itemImage,
+		            'itemImage' => $item->itemImage,
 		            'itemURL' => $item->itemURL,
 		            'categoryId' => $item->categoryId,
 		            'itemPrice' => $item->itemPrice,
