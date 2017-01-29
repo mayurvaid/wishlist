@@ -5,6 +5,8 @@
     <title>Gift Wrappd</title>
 	<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 	<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.16.0/jquery.validate.min.js"></script>
+	<script src="js/validate.config.js"></script>
 	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
   </head>
@@ -97,13 +99,13 @@
             <form id="signUpForm">
               <div class="signUpDet">
                 <div class="form-input">
-                  <input type="text" name="firstName" placeholder="First Name" id="firstName">
+                  <input type="text" name="firstName" id="firstName" placeholder="First Name" id="firstName">
                 </div>
                 <div class="form-input">
-                  <input type="text" name="lastName" placeholder="Last Name" id="lastName">
+                  <input type="text" name="lastName" id="lastName" placeholder="Last Name" id="lastName">
                 </div>
                 <div class="form-input">
-                  <input type="email" name="emailId" placeholder="Email" id="emailId">
+                  <input type="email" name="emailId" id="emailId" placeholder="Email" id="emailId">
                 </div>
                 <div class="form-input">
                   <input type="password" name="password" placeholder="Password" id="password">
@@ -117,7 +119,7 @@
           </div>
           <div id="userLogin" style="display:none">
             <h2>LOGIN</h2>
-            <form id="signUpForm">
+            <form id="signInForm">
               <div class="signUpDet">
                 <div class="form-input">
                   <input type="email" name="emailId" placeholder="Email" id="emailId">
