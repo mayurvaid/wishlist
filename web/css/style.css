@@ -61,7 +61,7 @@ header {
 }
 .logo img{
 	width: 200px;
-    margin-top: 20px;
+    margin-top: 10px;
 }
 .w-button {
     color: #fff;
@@ -69,7 +69,8 @@ header {
     text-decoration: none;
     margin: 0 5px;
     font-size: 14px;
-	box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.14)
+	box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.14);
+	border-radius: 4px;
 }
 .w-button.but-1 {
     border: 1px solid #67c1ea;
@@ -86,7 +87,7 @@ header {
     padding: 10px;
 }
 .menuBar {
-    margin: 35px 0;
+    margin: 25px 0;
     width: 75%;
     text-align: center;
 }
@@ -100,7 +101,7 @@ header {
 	display:inline-block;
 }
 footer {
-    background-color: #ff9980;
+    background-color: #8fd1f0	;
     width: 100%;
     height: 100px;
     position: absolute;
@@ -111,31 +112,61 @@ footer .wrapper{
 	color:#fff;
 	position:relative;
 }
+footer .wrapper .logo img{
+	width:150px;
+	margin-left:20px;	
+}
 footer .content{
 	position: absolute;
-    left: 10%;
+    left: 25%;
     top: 30px;
 }
 footer .contact a{
 	margin: 0 0 10px 30px;
     display: block;
 }
+.ws-socail-content{
+	position: absolute;
+    right: 10%;
+    top: 30px;
+}
+.ws-socail-content li{
+	float:left;
+	width:30px;
+	margin: 0 10px;
+}
 
 /* banner */
-#banner{
-	padding-top: 80px;
-    height: 350px;
-    background: url(../images/banner1.jpg) no-repeat center;
-    background-size: 100%;
+
+#banner {
+	margin-top: 7%;
+    display:inline-block;
 }
 #banner .content {
-	margin: 8% 35px 0 0;
-    float: right;
-    width: 46%;
-	display:none;
+	padding:0 20px;
+	float:left;
+	width:35%;
 }
-
+#banner .content h1{
+	padding-top: 25%;
+    padding-bottom: 10px;
+}
+#banner .imgSec{
+	float:left;
+	width:65%;
+}
+#banner .imgSec img{
+	width:100%;
+}
 /* how it works */
+#howItWorks{
+	text-align:center;
+}
+.getStarted{
+	margin-top: 20px;
+    display: inline-block;
+	padding: 10px 20px;
+}
 .heading{
 	text-align: center;
     margin: 30px 0;
@@ -188,12 +219,27 @@ footer .contact a{
 /* responsive css*/
 @media screen and (max-device-width: 736px) and (min-device-width: 320px) {
    body {
-	font-size:2.2em;
+		font-size:2.2em;
    }
    footer {
-    height: 150px;
+		height: 150px;
   }
-   
+   #banner {
+		margin-top: 13%;
+		width:100%;
+	}
+	#banner .content {
+		position: absolute;
+		top: -2%;
+		text-align: center;
+		z-index: 100;
+		width: 100%;
+	}
+	#banner .imgSec{
+		opacity: 0.3;
+		float:none;
+		width:100%;
+	}
    /* menu */
    #menuMobile{
 	   margin: 3% 1% 1%;
@@ -202,16 +248,16 @@ footer .contact a{
    #menuMobile img{
 	  width: 75px;
    }
-  #menuMobile .menuOptions{
-	z-index: 2000;
-    background-color: #67c1ea;
-    position: absolute;
-  }
-  #menuMobile .menuOptions li{
-    padding: 20px 16px;
-    text-align: left;
-    font-size: 32px;
-	border-bottom: 3px solid #fff;
+   #menuMobile .menuOptions{
+		z-index: 2000;
+		background-color: #67c1ea;
+		position: absolute;
+   }
+   #menuMobile .menuOptions li{
+		padding: 20px 16px;
+		text-align: left;
+		font-size: 32px;
+		border-bottom: 3px solid #fff;
   }
   #menuMobile .menuOptions li a{
 	  color:#fff;
@@ -235,7 +281,7 @@ footer .contact a{
 	margin:0;
   }
   .step img {
-    width: 35%;
+    width: 50%;
   }
   .stepNum{
 	width:75px;
@@ -264,7 +310,6 @@ footer .contact a{
   
 }
 
-
 /* overlay */
 
 .w-modal,
@@ -282,7 +327,7 @@ footer .contact a{
     top: 100%;
 }
 .w-backdrop {
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.7);
 }
 .w-modal-container {
     width: 400px;
@@ -413,13 +458,4 @@ footer .contact a{
 	.w-modal h2 {
 		font-size:34px;
 	}
-}
-
-form div{
-    text-align: left;
-}
-form label.error{
-    text-align: left;
-    font-size: 12px;
-    color: #ff0000;
 }
