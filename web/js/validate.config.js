@@ -49,7 +49,22 @@ var validationObj = {
 
 $.validator.setDefaults({
 		submitHandler: function(form) {
-			alert("submitted!");
+			var data = {
+				"firstname" : $("#firstName").val(),
+				"lastname" : $("#lastName").val(),
+				"email" : $("#emailId").val(),
+				"password" :$("#password").val()
+		};
+
+		$.ajax({
+		  type: "POST",
+		  url: 'http://localhost/wishlist/user.php?action=insert',
+		  dataType: 'json',
+		  data: JSON.stringify(data),
+		  success: function(data){
+		  	alert(data);
+		  }
+		});
 		}
 	});
 
